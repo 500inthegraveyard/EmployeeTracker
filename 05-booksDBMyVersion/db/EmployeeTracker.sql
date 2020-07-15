@@ -13,7 +13,7 @@ CREATE TABLE roles(
   fakesalary INTEGER(11),
   title VARCHAR(30),
   salary Decimal(5,2),
-  department_id INTEGER(11),
+  department_id INTEGER(30),
   PRIMARY KEY (id),
   FOREIGN KEY (fakesalary) REFERENCES department(id)
 );
@@ -43,9 +43,17 @@ INSERT INTO roles (title, fakesalary, department_id, salary) values ('Dracula', 
 INSERT INTO employee (last_name, role_id, first_name, manager_id) values ('Great book !', 2, "bill", 12);
 INSERT INTO employee (last_name, role_id, first_name, manager_id) values ('Amazing', 3, "Tim", 11);
 
-SELECT * FROM department;
-SELECT * FROM roles;
-SELECT * FROM employee;
+-- SELECT * FROM department;
+-- SELECT * FROM roles;
+-- SELECT * FROM employee;
+
+SELECT names, title, salary, department_id
+FROM roles
+INNER JOIN department ON roles.fakesalary = roles.id
+INNER JOIN employee ON roles.id = employee.Id
+;
+
+
 
 -- show ALL roles with department
 -- INNER JOIN will only return all matching values from both tables
