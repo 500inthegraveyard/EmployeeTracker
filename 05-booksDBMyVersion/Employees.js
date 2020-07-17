@@ -17,7 +17,7 @@ inquirer
             type: 'list',
             message: 'Choose an operation?',
             name: 'option',
-            choices: ['View All Books', ]
+            choices: ['View All Books','View all employees by department' ]
         }
     ]).then(async ({option}) => {
       switch (option) {
@@ -25,8 +25,11 @@ inquirer
              const books = await getBooks()
              console.table(books)
             break;
-      
+            case 'View all employees by department':
+            
+
           default:
               break;
+
       }
     }).catch(err => console.log(err))

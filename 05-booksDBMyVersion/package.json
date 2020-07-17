@@ -1,7 +1,6 @@
 {
-  "name": "05-booksDB",
+  "name": "05-booksdb",
   "version": "1.0.0",
-  "description": "",
   "main": "books.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,7 @@
   "dependencies": {
     "inquirer": "^7.3.2",
     "mysql": "^2.18.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

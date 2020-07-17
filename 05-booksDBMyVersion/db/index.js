@@ -6,7 +6,11 @@ class DB {
     }
 
     getBooks(){
-        return connection.query("SELECT * FROM books RIGHT JOIN authors ON authors.id = books.authorId WHERE authorId = ?", [1])
+        return connection.query(`SELECT names, title, salary, e.first_name, e.last_name, m.last_name as manager_last_name, m.first_name as manager_first_name
+            FROM roles
+            INNER JOIN department ON roles.department_id = department.id
+            INNER JOIN employee e ON roles.id = e.role_id 
+            INNER JOIN employee m ON e.manager_id = m.id;`)
     }
 
     // TODO: create addBook method that invokes an INSERT INTO statement
